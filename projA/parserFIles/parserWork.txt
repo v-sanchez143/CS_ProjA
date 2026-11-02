@@ -1,0 +1,23 @@
+
+Fill this out and submit this file with the code.
+
+Group#:
+
+Must have divided the work as specified.
+If the member did not fully contribute to the assigned part, do not list their name!
+
+1.State who did what by indicating: 
+  Member A tasks (syntax error functions) - who:
+  Member B tasks (match and next_token)- who:
+  Member C tasks (connecting with the scanner) who:
+  Who wrote which parser functions? 
+  functions             who
+  ----------------      ----------
+
+
+2.  You have included all the required comments? 
+
+3.  The parser produced correct output for 
+    all 6 test cases?
+
+Submit your code and this file on Gradescope or Empress

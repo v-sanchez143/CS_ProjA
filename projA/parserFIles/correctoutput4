@@ -1,0 +1,11 @@
+Processing <story>
+Processing <sentence>
+Processing <connector>
+Processing <noun>
+Matched PRONOUN
+Matched SUBJECT
+Processing <after_subject>
+Processing <noun>
+Matched WORD1
+Processing <after_noun>
+SYNTAX ERROR: unexpected mashita found in after_noun

@@ -1,0 +1,6 @@
+Processing <story>
+Processing <sentence>
+Processing <connector>
+LEXICAL ERROR: invalid token apple
+Processing <noun>
+SYNTAX ERROR: unexpected apple found in noun

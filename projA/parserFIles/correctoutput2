@@ -1,0 +1,14 @@
+Processing <story>
+Processing <sentence>
+Processing <connector>
+Matched CONNECTOR
+Processing <noun>
+Matched PRONOUN
+Matched SUBJECT
+Processing <after_subject>
+Processing <noun>
+Matched WORD1
+Processing <after_noun>
+Processing <be>
+Matched IS
+SYNTAX ERROR: expected PERIOD but found ne
