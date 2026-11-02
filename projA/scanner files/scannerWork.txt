@@ -1,0 +1,22 @@
+
+Fill this out (marked by **) and submit this with the executable.
+
+Group#: **
+
+1.	Indicate who did what by giving names.
+Must have divided the work as specified by the assignment
+sheet. If the member did not fully contribute to the assigned part, 
+do not list their name!!!!!
+o	Member A tasks(**)- who: **
+o	Member B tasks(**)- who: **
+o	Member C tasks(**)- who: **
+
+2.     You have included all the required comments? (RE and Done By): **
+
+3.     Your program works correctly on scannertest1 and scannertest2? **
+
+4.     Any other remarks.
+       **
+
+
+
