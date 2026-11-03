@@ -91,6 +91,7 @@ bool word (string s)
       state = q2;
       charpos++;
       else
+      /*
       if (state == q01f && s[charpos] == 'v')
       state = q01f;
       charpos++;
@@ -167,11 +168,12 @@ bool word (string s)
       state = q3;
       charpos++;
       else
+      */
 	  return(false);
       charpos++;
     }//end of while
 
-  // where did I end up????
+  // where did I end up???? in one of the final states
   if (state == q01f || state == q03f) return(true);  // end in a final state
    else return(false);
   
@@ -181,6 +183,7 @@ bool word (string s)
 // Done by: ** 
 bool period (string s)
 {  // complete this **
+if (s == "."){return true;}
 }
 
 // ------ Three  Tables -------------------------------------
@@ -188,27 +191,51 @@ bool period (string s)
 // TABLES Done by: ** Manya Sanchez &
 
 // ** Update the tokentype to be ERROR, WORD1, WORD2, PERIOD, EOFM, etc.
-enum tokentype {ERROR, WORD1,WORD2,PERIOD,EOFM,VERB,VERBNEG,VERBPAST,VERBPASTNEG,IS,WAS,OBJECT,SUBJECT,DESTINATION,PRONOUN,CONNECTOR};
+enum tokentype {ERROR, WORD1,WORD2,PERIOD,EOFM,VERB,
+  VERBNEG,VERBPAST,VERBPASTNEG,IS,WAS,OBJECT,SUBJECT,
+  DESTINATION,PRONOUN,CONNECTOR };
 
 // ** For the display names of tokens - must be in the same order as the tokentype.
-string tokenName[30] = {"ERROR", }; 
+string tokenName[30] = {"ERROR", "WORD1","WORD2","PERIOD",
+  "EOFM","VERB","VERBNEG","VERBPAST","VERBPASTNEG","IS",
+  "WAS","OBJECT","SUBJECT","DESTINATION","PRONOUN",
+  "CONNECTOR" }; 
 
 // ** Need the reservedwords table to be set up here. 
 // ** Do not require any file input for this. Hard code the table.
 // ** Your scanner should work without any additional files.
-
+string reservedWords [2][18] = {
+  {"masu",VERB}
+  {"masen",VERBNEG}
+  {"mashita",VERBPAST}
+  {"masendeshita",VERBPASTNEG}
+  {"desu",IS}
+  {"deshita",WAS}
+  {"o",OBJECT}
+  {"wa",SUBJECT}
+  {"ni", DESTINATION}
+  {"watashi",PRONOUN}
+  {"anata",PRONOUN}
+  {"kare",PRONOUN}
+  {"kanojo",PRONOUN}
+  {"sore",PRONOUN}
+  {"mata", CONNECTOR}
+  {"soshite",CONNECTOR}
+  {"shikashi",CONNECTOR}
+  {"dakara",CONNECTOR}
+};
 
 // ------------ Scanner and Driver ----------------------- 
 
 
 // Scanner processes only one word each time it is called
 // Gives back the token type and the word itself
-// ** Done by: 
+// ** Done by: Manya Sanchez &
 void scanner(tokentype& tt, string& w)
 {
   cin >> w;
   // 1. If it is eofm, return right now.   
-
+  if (w == "eofm"){return;}
   /*  **
   2. Call the token functions (word and period) 
      one after another (if-then-else).
