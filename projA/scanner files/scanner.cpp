@@ -235,7 +235,6 @@ void scanner(tokentype& tt, string& w)
 {
   cin >> w;
   // 1. If it is eofm, return right now.   
-  if (w == "eofm"){return;}
   /*  **
   2. Call the token functions (word and period) 
      one after another (if-then-else).
@@ -249,7 +248,14 @@ void scanner(tokentype& tt, string& w)
 
   4. Return the token type & string  (pass by reference)
   */
+   if (w == "eofm"){return;}
+   if (word(w) == false && period(w) == false){
   tt = ERROR;
+   }
+  (word(w)){
+    //go through reserved list tokens and check
+  }
+  
 }//the end of scanner
 
 
