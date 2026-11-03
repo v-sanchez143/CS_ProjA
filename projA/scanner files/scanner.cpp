@@ -6,7 +6,7 @@ using namespace std;
 /* Look for all **'s and complete them */
 
 //=====================================================
-// File scanner.cpp written by: Group Number: ** 
+// File scanner.cpp written by: Group Number: ** 7
 //=====================================================
 
 // --------- Two DFAs ---------------------------------
@@ -14,46 +14,181 @@ using namespace std;
 // You may add other functions to help your implementation of the state transitions
 
 // WORD DFA 
-// Done by: **
+// Done by: ** Manya Sanchez &
 bool word (string s)
 {
 
   int state = 0;
   int charpos = 0;
-  /* replace the following todo the word dfa  **
+  /* replace the following todo the word dfa  ** */
   while (s[charpos] != '\0') 
     {
-      if (state == 0 && s[charpos] == 'a')
-      state = 1;
+      if (state == 0 && s[charpos] == 'v')
+      state = q01f;
+      charpos++;
       else
-      if (state == 1 && s[charpos] == 'b')
-      state = 2;
+      if (state == 0 && s[charpos] == 's')
+      state = qs;
+      charpos++;
       else
-      if (state == 2 && s[charpos] == 'b')
-      state = 2;
+      if (state == 0 && s[charpos] == 't')
+      state = qt;
+      charpos++;
+      else
+      if (state == 0 && s[charpos] == 'c')
+      state = qc;
+      charpos++;
+      else
+      if (state == 0 && s[charpos] == 'h')
+      state = q3;
+      charpos++;
+      else
+      if (state == 0 && s[charpos] == 'y')
+      state = q2;
+      charpos++;
+      else
+      if (state == 0 && s[charpos] == 'n')
+      state = q3;
+      charpos++;
+      else
+      if (state == 0 && s[charpos] == 'd'||'w'||'z'||'j')
+      state = q2;
+      charpos++;
+      else
+      if (state == 0 && s[charpos] == 'b'||'g'||'k'||'m'||'p'||'r')
+      state = q3;
+      charpos++;
+      else
+      if (state == qs && s[charpos] == 'v')
+      state = q01f;
+      charpos++;
+      else
+      if (state == qs && s[charpos] == 'h')
+      state = q2;
+      charpos++;
+      else
+      if (state == qt && s[charpos] == 'v')
+      state = q01f;
+      charpos++;
+      else
+      if (state == qt && s[charpos] == 's')
+      state = q2;
+      charpos++;
+      else
+      if (state == qc && s[charpos] == 'h')
+      state = q2;
+      charpos++;
+      else
+      if (state == q2 && s[charpos] == 'v')
+      state = q01f;
+      charpos++;
+      else
+      if (state == q3 && s[charpos] == 'v')
+      state = q01f;
+      charpos++;
+      else
+      if (state == q3 && s[charpos] == 'y')
+      state = q2;
+      charpos++;
+      else
+      if (state == q01f && s[charpos] == 'v')
+      state = q01f;
+      charpos++;
+      else
+      if (state == q01f && s[charpos] == 's')
+      state = qs;
+      charpos++;
+      else
+      if (state == q01f && s[charpos] == 't')
+      state = qt;
+      charpos++;
+      else
+      if (state == q01f && s[charpos] == 'c')
+      state = qc;
+      charpos++;
+      else
+      if (state == q01f && s[charpos] == 'h')
+      state = q3;
+      charpos++;
+      else
+      if (state == q01f && s[charpos] == 'y')
+      state = q2;
+      charpos++;
+      else
+      if (state == q01f && s[charpos] == 'n')
+      state = q03f;
+      charpos++;
+      else
+      if (state == q01f && s[charpos] == 'd'||'w'||'z'||'j')
+      state = q2;
+      charpos++;
+      else
+      if (state == q01f && s[charpos] == 'b'||'g'||'k'||'m'||'p'||'r')
+      state = q3;
+      charpos++;
+      else
+      if (state == q03f && s[charpos] == 'v')
+      state = q01f;
+      charpos++;
+      else
+      if (state == q03f && s[charpos] == 's')
+      state = qs;
+      charpos++;
+      else
+      if (state == q03f && s[charpos] == 't')
+      state = qt;
+      charpos++;
+      else
+      if (state == q03f && s[charpos] == 't')
+      state = qt;
+      charpos++;
+      else
+      if (state == q03f && s[charpos] == 'c')
+      state = qc;
+      charpos++;
+      else
+      if (state == q03f && s[charpos] == 'h')
+      state = qh;
+      charpos++;
+      else
+      if (state == q03f && s[charpos] == 'y')
+      state = qy;
+      charpos++;
+      else
+      if (state == q03f && s[charpos] == 'n')
+      state = qn;
+      charpos++;
+      else
+      if (state == q03f && s[charpos] == 'd'||'w'||'z'||'j')
+      state = q2;
+      charpos++;
+      else
+      if (state == q03f && s[charpos] == 'b'||'g'||'k'||'m'||'p'||'r')
+      state = q3;
+      charpos++;
       else
 	  return(false);
       charpos++;
     }//end of while
 
   // where did I end up????
-  if (state == 2) return(true);  // end in a final state
+  if (state == q01f || state == q03f) return(true);  // end in a final state
    else return(false);
-  */
+  
 }
 
 // PERIOD DFA 
-// Done by: **
+// Done by: ** 
 bool period (string s)
 {  // complete this **
 }
 
 // ------ Three  Tables -------------------------------------
 
-// TABLES Done by: **
+// TABLES Done by: ** Manya Sanchez &
 
 // ** Update the tokentype to be ERROR, WORD1, WORD2, PERIOD, EOFM, etc.
-enum tokentype {ERROR, };
+enum tokentype {ERROR, WORD1,WORD2,PERIOD,EOFM,VERB,VERBNEG,VERBPAST,VERBPASTNEG,IS,WAS,OBJECT,SUBJECT,DESTINATION,PRONOUN,CONNECTOR};
 
 // ** For the display names of tokens - must be in the same order as the tokentype.
 string tokenName[30] = {"ERROR", }; 
