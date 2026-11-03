@@ -6,7 +6,7 @@ using namespace std;
 /* Look for all **'s and complete them */
 
 //=====================================================
-// File scanner.cpp written by: Group Number: ** 
+// File scanner.cpp written by: Group Number: ** 7
 //=====================================================
 
 // --------- Two DFAs ---------------------------------
@@ -14,66 +14,228 @@ using namespace std;
 // You may add other functions to help your implementation of the state transitions
 
 // WORD DFA 
-// Done by: **
+// Done by: ** Manya Sanchez &
 bool word (string s)
 {
 
   int state = 0;
   int charpos = 0;
-  /* replace the following todo the word dfa  **
+  /* replace the following todo the word dfa  ** */
   while (s[charpos] != '\0') 
     {
-      if (state == 0 && s[charpos] == 'a')
-      state = 1;
+      if (state == 0 && s[charpos] == 'v')
+      state = q01f;
+      
       else
-      if (state == 1 && s[charpos] == 'b')
-      state = 2;
+      if (state == 0 && s[charpos] == 's')
+      state = qs;
+   
       else
-      if (state == 2 && s[charpos] == 'b')
-      state = 2;
+      if (state == 0 && s[charpos] == 't')
+      state = qt;
+      
       else
+      if (state == 0 && s[charpos] == 'c')
+      state = qc;
+      
+      else
+      if (state == 0 && s[charpos] == 'h')
+      state = q3;
+     
+      else
+      if (state == 0 && s[charpos] == 'y')
+      state = q2;
+      
+      else
+      if (state == 0 && s[charpos] == 'n')
+      state = q3;
+      
+      else
+      if (state == 0 && s[charpos] == 'd'||'w'||'z'||'j')
+      state = q2;
+     
+      else
+      if (state == 0 && s[charpos] == 'b'||'g'||'k'||'m'||'p'||'r')
+      state = q3;
+      
+      else
+      if (state == qs && s[charpos] == 'v')
+      state = q01f;
+      
+      else
+      if (state == qs && s[charpos] == 'h')
+      state = q2;
+   
+      else
+      if (state == qt && s[charpos] == 'v')
+      state = q01f;
+     
+      else
+      if (state == qt && s[charpos] == 's')
+      state = q2;
+     
+      else
+      if (state == qc && s[charpos] == 'h')
+      state = q2;
+    
+      else
+      if (state == q2 && s[charpos] == 'v')
+      state = q01f;
+      
+      else
+      if (state == q3 && s[charpos] == 'v')
+      state = q01f;
+      
+      else
+      if (state == q3 && s[charpos] == 'y')
+      state = q2;
+      
+      else
+      /*
+      if (state == q01f && s[charpos] == 'v')
+      state = q01f;
+      charpos++;
+      else
+      if (state == q01f && s[charpos] == 's')
+      state = qs;
+      charpos++;
+      else
+      if (state == q01f && s[charpos] == 't')
+      state = qt;
+      charpos++;
+      else
+      if (state == q01f && s[charpos] == 'c')
+      state = qc;
+      charpos++;
+      else
+      if (state == q01f && s[charpos] == 'h')
+      state = q3;
+      charpos++;
+      else
+      if (state == q01f && s[charpos] == 'y')
+      state = q2;
+      charpos++;
+      else
+      if (state == q01f && s[charpos] == 'n')
+      state = q03f;
+      charpos++;
+      else
+      if (state == q01f && s[charpos] == 'd'||'w'||'z'||'j')
+      state = q2;
+      charpos++;
+      else
+      if (state == q01f && s[charpos] == 'b'||'g'||'k'||'m'||'p'||'r')
+      state = q3;
+      charpos++;
+      else
+      if (state == q03f && s[charpos] == 'v')
+      state = q01f;
+      charpos++;
+      else
+      if (state == q03f && s[charpos] == 's')
+      state = qs;
+      charpos++;
+      else
+      if (state == q03f && s[charpos] == 't')
+      state = qt;
+      charpos++;
+      else
+      if (state == q03f && s[charpos] == 't')
+      state = qt;
+      charpos++;
+      else
+      if (state == q03f && s[charpos] == 'c')
+      state = qc;
+      charpos++;
+      else
+      if (state == q03f && s[charpos] == 'h')
+      state = qh;
+      charpos++;
+      else
+      if (state == q03f && s[charpos] == 'y')
+      state = qy;
+      charpos++;
+      else
+      if (state == q03f && s[charpos] == 'n')
+      state = qn;
+      charpos++;
+      else
+      if (state == q03f && s[charpos] == 'd'||'w'||'z'||'j')
+      state = q2;
+      charpos++;
+      else
+      if (state == q03f && s[charpos] == 'b'||'g'||'k'||'m'||'p'||'r')
+      state = q3;
+      charpos++;
+      else
+      */
 	  return(false);
       charpos++;
     }//end of while
 
-  // where did I end up????
-  if (state == 2) return(true);  // end in a final state
+  // where did I end up???? in one of the final states
+  if (state == q01f || state == q03f) return(true);  // end in a final state
    else return(false);
-  */
+  
 }
 
 // PERIOD DFA 
-// Done by: **
+// Done by: ** 
 bool period (string s)
 {  // complete this **
+if (s == "."){return true;}
 }
 
 // ------ Three  Tables -------------------------------------
 
-// TABLES Done by: **
+// TABLES Done by: ** Manya Sanchez &
 
 // ** Update the tokentype to be ERROR, WORD1, WORD2, PERIOD, EOFM, etc.
-enum tokentype {ERROR, };
+enum tokentype {ERROR, WORD1,WORD2,PERIOD,EOFM,VERB,
+  VERBNEG,VERBPAST,VERBPASTNEG,IS,WAS,OBJECT,SUBJECT,
+  DESTINATION,PRONOUN,CONNECTOR };
 
 // ** For the display names of tokens - must be in the same order as the tokentype.
-string tokenName[30] = {"ERROR", }; 
+string tokenName[30] = {"ERROR", "WORD1","WORD2","PERIOD",
+  "EOFM","VERB","VERBNEG","VERBPAST","VERBPASTNEG","IS",
+  "WAS","OBJECT","SUBJECT","DESTINATION","PRONOUN",
+  "CONNECTOR" }; 
 
 // ** Need the reservedwords table to be set up here. 
 // ** Do not require any file input for this. Hard code the table.
 // ** Your scanner should work without any additional files.
-
+string reservedWords [2][18] = {
+  {"masu",VERB}
+  {"masen",VERBNEG}
+  {"mashita",VERBPAST}
+  {"masendeshita",VERBPASTNEG}
+  {"desu",IS}
+  {"deshita",WAS}
+  {"o",OBJECT}
+  {"wa",SUBJECT}
+  {"ni", DESTINATION}
+  {"watashi",PRONOUN}
+  {"anata",PRONOUN}
+  {"kare",PRONOUN}
+  {"kanojo",PRONOUN}
+  {"sore",PRONOUN}
+  {"mata", CONNECTOR}
+  {"soshite",CONNECTOR}
+  {"shikashi",CONNECTOR}
+  {"dakara",CONNECTOR}
+};
 
 // ------------ Scanner and Driver ----------------------- 
 
 
 // Scanner processes only one word each time it is called
 // Gives back the token type and the word itself
-// ** Done by: 
+// ** Done by: Manya Sanchez &
 void scanner(tokentype& tt, string& w)
 {
   cin >> w;
   // 1. If it is eofm, return right now.   
-
+  if (w == "eofm"){return;}
   /*  **
   2. Call the token functions (word and period) 
      one after another (if-then-else).
