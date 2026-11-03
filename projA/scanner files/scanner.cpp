@@ -25,71 +25,71 @@ bool word (string s)
     {
       if (state == 0 && s[charpos] == 'v')
       state = q01f;
-      charpos++;
+      
       else
       if (state == 0 && s[charpos] == 's')
       state = qs;
-      charpos++;
+   
       else
       if (state == 0 && s[charpos] == 't')
       state = qt;
-      charpos++;
+      
       else
       if (state == 0 && s[charpos] == 'c')
       state = qc;
-      charpos++;
+      
       else
       if (state == 0 && s[charpos] == 'h')
       state = q3;
-      charpos++;
+     
       else
       if (state == 0 && s[charpos] == 'y')
       state = q2;
-      charpos++;
+      
       else
       if (state == 0 && s[charpos] == 'n')
       state = q3;
-      charpos++;
+      
       else
       if (state == 0 && s[charpos] == 'd'||'w'||'z'||'j')
       state = q2;
-      charpos++;
+     
       else
       if (state == 0 && s[charpos] == 'b'||'g'||'k'||'m'||'p'||'r')
       state = q3;
-      charpos++;
+      
       else
       if (state == qs && s[charpos] == 'v')
       state = q01f;
-      charpos++;
+      
       else
       if (state == qs && s[charpos] == 'h')
       state = q2;
-      charpos++;
+   
       else
       if (state == qt && s[charpos] == 'v')
       state = q01f;
-      charpos++;
+     
       else
       if (state == qt && s[charpos] == 's')
       state = q2;
-      charpos++;
+     
       else
       if (state == qc && s[charpos] == 'h')
       state = q2;
-      charpos++;
+    
       else
       if (state == q2 && s[charpos] == 'v')
       state = q01f;
-      charpos++;
+      
       else
       if (state == q3 && s[charpos] == 'v')
       state = q01f;
-      charpos++;
+      
       else
       if (state == q3 && s[charpos] == 'y')
       state = q2;
-      charpos++;
+      
       else
       /*
       if (state == q01f && s[charpos] == 'v')
