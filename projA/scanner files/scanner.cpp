@@ -40,55 +40,55 @@ bool word (string s)
 
       // ** from q0 (start state) **
       if (state == q0 && isVowel(c)) //Trs(q0, V) = q01f
-          state = q01f;
-
+      state = q01f;
+      
       else if (state == q0 && c == 's') //Trs(q0, s) = qs
-          state = qs;
-
+      state = qs;
+   
       else if (state == q0 && c == 't') //Trs(q0, t) = qt
-          state = qt;
-
+      state = qt;
+      
       else if (state == q0 && c == 'c') //Trs(q0, c) = qc
-          state = qc;
-
+      state = qc;
+      
       //HELPER FUNC bgkmpr and h and n 
       else if (state == q0 && (c == 'h' || c == 'n' || isBGKMPR(c))) //Trs(q0, bghkmpnr) = q3
-          state = q3;
-
+      state = q3;
+     
       //HELPER FUNC dwzj and y
       else if (state == q0 && (c == 'y' || isDWZJ(c))) //Trs(q0, dwzyj) = q2
-          state = q2;
-
+      state = q2;
+      
 
       // ** from single states **
       else if (state == qs && isVowel(c)) //Trs(qs, V) = q01f
           state = q01f;
-
+      
       else if (state == qs && c == 'h') //Trs(qs, h) = q2  ** note h's "special rule" **
-          state = q2;
-
+      state = q2;
+     
       else if (state == qt && isVowel(c)) //Trs(qt, V) = q01f
-          state = q01f;
-
+      state = q01f;
+      
       else if (state == qt && c == 's') //Trs(qt, s) = q2
-          state = q2;
-
+      state = q2;
+   
       else if (state == qc && c == 'h') //Trs(qc, h) = q2  ** note h's "special rule" **
           state = q2;
 
       else if (state == q2 && isVowel(c)) //Trs(q2, V) = q01f
-          state = q01f;
-
+      state = q01f;
+     
       else if (state == q3 && isVowel(c)) //Trs(q3, V) = q01f
           state = q01f;
-
+     
       else if (state == q3 && c == 'y') //Trs(q3, y) = q2 ** note y's "spcial rule" **
-          state = q2;
-
+      state = q2;
+    
       // ** from q01f FINAL **
       else if (state == q01f && isVowel(c)) //Trs(q01f, V) = q01f [loop back]
-          state = q01f;
-
+      state = q01f;
+      
       else if (state == q01f && c == 'n') //Trs(q01f, n) = q03f ** note n's "special rule" **
           state = q03f;
 
@@ -112,8 +112,8 @@ bool word (string s)
 
       // ** from q03f FINAL **
       else if (state == q03f && isVowel(c)) //Trs(q03f, V) = q01f 
-          state = q01f;
-
+      state = q01f;
+      
       else if (state == q03f && c == 's') //Trs(q03f, s) = qs
           state = qs;
 
@@ -125,24 +125,24 @@ bool word (string s)
 
       //HELPER FUNC dwzyj and y
       else if (state == q03f && (c == 'y' || isDWZJ(c)) ) //Trs(q03f, dwzyj) = q2
-          state = q2;
-
+      state = q2;
+      
       //HELPER FUNC bgkmpr and h and n 
       else if (state == q03f && (c == 'h' || c == 'n' || isBGKMPR(c)) ) //Trs(q03f, bghkmnpr) = q3
           state = q3;
 
       else
           return(false); //no trs matched -> not valid word
-
+      
       charpos++; //move on to next letter
   
-  }//end of while
+    }//end of while
 
 
   // where did I end up???? in one of the final states
   if (state == q01f || state == q03f) return(true);  // end in a final state
    
-  else return(false); 
+   else return(false);
   
 }
 
@@ -211,7 +211,7 @@ reservedWord reservedWords[NUMRESERVED] =
     {"mata", CONNECTOR},
     {"soshite",CONNECTOR},
     {"shikashi",CONNECTOR},
-    {"dakara",CONNECTOR}
+  {"dakara",CONNECTOR}
 };
 
 
@@ -263,8 +263,8 @@ void scanner(tokentype& tt, string& w) //tt & w are pbr(&) so the values set her
   {
       //both DFAs failed -> lexical error
       cerr << "Lexical error: " << w << " isn't a valid token\n";
-      tt = ERROR;
-  }
+  tt = ERROR;
+   }
 
   // 4. Return the token type & string  (pass by reference)
   
