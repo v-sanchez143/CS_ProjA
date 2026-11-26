@@ -234,7 +234,7 @@ void scanner(tokentype& tt, string& w) //tt & w are pbr(&) so the values set her
 
 
 //=================================================
-// File parser.cpp written by Group Number: ** group 7
+// File parser.cpp written by Group Number: 7
 //=================================================
 
 // ----- Four Utility Functions and Globals -----------------------------------
@@ -242,24 +242,20 @@ void scanner(tokentype& tt, string& w) //tt & w are pbr(&) so the values set her
 // ** Need syntaxerror1 and syntaxerror2 functions (each takes 2 args)
 //    to display syntax error messages as specified by me.  
 
-// Type of error: syntax error: it's looking for defined token names 
-// not the token themselves yet. This error occurs when a word
-//is found before it's token type 
+// Type of error: match fail, incorrect token type found
 // Done by: Manya Sanchez
-void syntaxerror1(token_type, saved_lexeme)
+void syntaxerror1(saved_lexeme, token_type)
 {
    cout << "SYNTAX ERROR: expected" << token_type << "but found" << saved_lexeme << endl;
-   exit (1);
+   exit (1); //halt
 }
 
-// Type of error: syntax error: invalid or unexpected token in a 
-// the wrong token type
-// Done by: ** Manya Sanchez
+// Type of error: default case in switch stmt picked meaning invalid or unexpected token inputed
+// Done by: Manya Sanchez
 void syntaxerror2(saved_lexeme, parser_function)
 {
-   cout << "SYNTAX ERROR: unexpected " << saved_lexeme;
-   cout << " found in " << parser_function << endl;
-   exit (1);
+   cout << "SYNTAX ERROR: unexpected " << saved_lexeme << " found in " << parser_function << endl;
+   exit (1); //halt
 }
 
 // ** Need the updated match and next_token with 2 global vars
@@ -279,9 +275,115 @@ bool match(tokentype expected) {}
 // ** Be sure to put the corresponding grammar rule above each function
 // ** Be sure to put the name of the programmer above each function
 
-// Grammar: **
-// Done by: **
+// Grammar: <story> -> <story> <prime>
+// Done by: manya sanchez
+void story () {
+cout << ("processing <story>\n");
+story(); //recursivly call story to read multiple stories
+story_prime(); //call story_prime to begin taking apart 
+//the expression and read the next expression or end bc no more sentences
+match(END); // if find eofm then end the cycle 
+}
 
+// Grammar: <story_prime> -> <sentence> <story_prime> | epsilon
+// Done by: manya sanchez
+void story_prime() {
+   cout << "Processing <story_prime>\n";
+   switch(next_token()){
+      case read:
+         sentence(); //begin reading current sentence
+         story_prime(); //read the next sentence 
+         break;
+      default: //the nxt token does not belong to a stmt
+         //use epsilon n return
+         return;
+      }
+   }
+  
+}
+// Grammar: <sentence> -> <connector> <noun> SUBJECT <after_noun>
+// Done by: manya sanchez
+void sentence(){
+   cout << "processing <sentence>\n";
+   connector();
+   noun();
+   match (SUBJECT);
+   after_noun();
+}
+
+// Grammar: <after_subject> -> <verb> <tense> PERIOD
+//             | <noun> <after_noun>
+// Done by: manya sanchez
+void after_subject(){
+   cout << "processing <after_subject>\n";
+   switch (next_token()){
+      case verb:
+         verb();
+         tense();
+         match(PERIOD);
+         break;
+      case noun:
+         noun();
+         after_noun();
+         break;
+      default: //syntax error bc it should be a noun or verb token type
+         syntaxerror1( saved_lexeme, "verb or noun");
+   }  
+}
+
+// Grammar: <after_noun> -> <be> PERIOD | DESTINATION <verb> <tense> 
+//                PERIOD | OBJECT <after_object>
+// Done by: Manya Sanchez
+void after_noun(){
+   cout << "processing <after_noun>\n";
+   switch (next_token()){
+      case be:
+         be();
+         match(PERIOD);
+         break;
+      case dest:
+         match(DESTINATION);
+         verb();
+         tense();
+         match(PERIOD);
+         break;
+      case object:
+         match(OBJECT);
+         after_object();
+      default:
+         syntaxerror2(saved_lexeme, "after_noun")
+   }
+}
+
+// Grammar: 
+// Done by:
+
+// Grammar: 
+// Done by:
+
+// Grammar: 
+// Done by:
+
+// Grammar: 
+// Done by:
+
+// Grammar: 
+// Done by:
+
+// Grammar: 
+// Done by:
+
+// Grammar: 
+// Done by:
+
+// Grammar: 
+// Done by:
+
+// Grammar: 
+// Done by:
+
+// Grammar: 
+// Done by:
 void story(){
    // **
 }  // to be implemented as part of the assignment
